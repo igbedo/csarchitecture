@@ -282,3 +282,210 @@ h3{
   .nav{ flex-wrap: wrap; justify-content: flex-end; }
 }
 
+
+/* =========================================================
+   Ivy + Modern Engineering Theme Patch (B: gold sparingly)
+   Paste at END of styles.css
+========================================================= */
+
+/* 1) Theme variables override */
+:root{
+  --bg: #F8FAFC;         /* soft white */
+  --text: #111827;       /* charcoal */
+  --muted: #6B7280;
+  --border: rgba(15, 23, 42, 0.12);
+  --card: rgba(15, 23, 42, 0.03);
+
+  --accent: #0F172A;     /* primary = deep navy (was blue) */
+  --accent2: #0B1220;    /* deeper navy */
+  --gold: #C6A75E;       /* muted gold accent */
+  --shadow: 0 10px 28px rgba(2, 6, 23, 0.08);
+}
+
+/* 2) Body background + text safety */
+body{ background: var(--bg); color: var(--text); }
+.lead, .lead2, .feature p, .list{ color: var(--muted); }
+.muted{ color: var(--muted) !important; }
+
+/* 3) Header stays white + more “academic” */
+.site-header{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+}
+
+/* Ensure brand looks crisp */
+.brand-text{
+  color: var(--accent);
+  font-weight: 650;
+  letter-spacing:-0.02em;
+}
+
+/* Nav: keep it neutral; gold only for active underline */
+.nav a{
+  color: var(--accent);
+  font-weight: 560;
+}
+.nav a:hover{
+  color: var(--accent);
+  opacity: .82;
+  text-decoration: none;
+}
+
+/* Replace blue “pill” active state with subtle underline */
+.nav a.active{
+  background: transparent;
+  color: var(--accent);
+  position: relative;
+}
+.nav a.active::after{
+  content:"";
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:-6px;
+  height:2px;
+  background: var(--gold);
+  border-radius: 999px;
+}
+
+/* 4) Section heading accent line (gold, subtle) */
+.section-head h2::after{
+  content:"";
+  display:block;
+  width:56px;
+  height:3px;
+  background: var(--gold);
+  margin-top:10px;
+  border-radius:999px;
+  opacity:.9;
+}
+
+/* 5) Cards: cleaner + less “SaaS landing page” */
+.card{
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* 6) Buttons: primary navy, secondary gold outline (sparingly) */
+.btn-primary{
+  background: var(--accent);
+  border-color: rgba(15,23,42,0.35);
+  color:#fff;
+}
+.btn-primary:hover{ background: #0b1220; }
+
+.btn-secondary{
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--accent);
+}
+.btn-secondary:hover{
+  background: rgba(198,167,94,0.12);
+}
+
+/* Keep link button as navy text */
+.btn-link{ color: var(--accent); }
+
+/* 7) Accent dots should be gold (small, tasteful) */
+.dot{ background: var(--gold); }
+
+/* 8) Forms: focus ring should be navy (not blue) */
+.input:focus{
+  outline:none;
+  border-color: rgba(15,23,42,0.45);
+  box-shadow: 0 0 0 4px rgba(15,23,42,0.10);
+}
+
+/* 9) Footer: deep navy anchor */
+.site-footer{
+  background: var(--accent);
+  color: #E5E7EB;
+  padding: 60px 0 30px;
+}
+.site-footer::before{
+  content:"";
+  display:block;
+  height:4px;
+  background: var(--gold); /* tiny prestige stripe */
+}
+.site-footer h3{ color:#fff; }
+.site-footer a{
+  color:#CBD5E1;
+  text-decoration:none;
+}
+.site-footer a:hover{ color:#fff; }
+.footer-bottom{
+  border-top: 1px solid rgba(255,255,255,0.10);
+  margin-top: 40px;
+  padding-top: 20px;
+  font-size: 0.92rem;
+}
+
+/* =========================================================
+   Institute Footer Refinement
+========================================================= */
+
+.site-footer{
+  background: var(--accent); /* deep navy */
+  color: #E5E7EB;
+  padding: 48px 0 28px;
+  font-size: 0.95rem;
+}
+
+/* Prestige gold line at top */
+.site-footer::before{
+  content:"";
+  display:block;
+  height:3px;
+  background: var(--gold);
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  flex-wrap:wrap;
+}
+
+.footer-left strong{
+  display:block;
+  font-size:1rem;
+  letter-spacing:-0.01em;
+  color:#fff;
+}
+
+.footer-left strong{
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+}
+
+.footer-left .small{
+  margin-top:6px;
+  color: rgba(255,255,255,0.65);
+}
+
+.footer-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.footer-right a{
+  color: rgba(255,255,255,0.75);
+  text-decoration:none;
+  font-weight:500;
+}
+
+.footer-right a:hover{
+  color:#fff;
+}
+
+.footer-right .small{
+  color: rgba(255,255,255,0.55);
+}
+
