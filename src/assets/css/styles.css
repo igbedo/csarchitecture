@@ -277,3 +277,8 @@ h3{
   .people-grid{ grid-template-columns: 1fr; }
 }
 
+/* Header nav wrapping for many links */
+@media (min-width: 981px){
+  .nav{ flex-wrap: wrap; justify-content: flex-end; }
+}
+
